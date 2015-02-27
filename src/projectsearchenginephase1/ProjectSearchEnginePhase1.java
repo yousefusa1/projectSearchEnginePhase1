@@ -17,13 +17,11 @@ public class ProjectSearchEnginePhase1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
         try { 
     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 } catch (Exception e) {
     e.printStackTrace();
-}
-   
+}  
         searchEngineGUI searchGUI = new searchEngineGUI();
         searchGUI.setVisible(true);
     }
