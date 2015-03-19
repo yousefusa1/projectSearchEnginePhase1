@@ -67,7 +67,6 @@ public class searchEngineGUI extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("c:/users/file1.txt     Found\nc:/users/file2.txt     Found");
         jScrollPane2.setViewportView(jTextArea1);
 
         jButton2.setText("Add File To Index");
@@ -128,6 +127,7 @@ public class searchEngineGUI extends javax.swing.JFrame {
         FileChooser.createAndShowGUI();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    // i have added thses comments just to test commits
     /**
      * @param args the command line arguments
      */
