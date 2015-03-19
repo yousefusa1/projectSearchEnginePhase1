@@ -102,8 +102,6 @@ public class FileChooser extends JPanel
     	    System.out.println("File is Saved to index successfully!");
             
             JOptionPane.showMessageDialog(null, "File is Saved to index successfully!");
-            searchEngineGUI obj = new searchEngineGUI();
-          //  this.setVisible(false);
             
  
             } catch (IOException ex) {
