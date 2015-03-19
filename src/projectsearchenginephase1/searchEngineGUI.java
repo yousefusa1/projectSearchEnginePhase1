@@ -4,6 +4,7 @@
  */
 package projectsearchenginephase1;
 
+import java.io.File;
 import javax.swing.JFileChooser;
 
 /**
@@ -57,6 +58,11 @@ public class searchEngineGUI extends javax.swing.JFrame {
         });
 
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +132,27 @@ public class searchEngineGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         FileChooser.createAndShowGUI();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+          File dir = new File("d:\\indexFiles");
+            File[] directoryListing = dir.listFiles();
+            if (directoryListing != null) {
+              for (File child : directoryListing) {
+                
+                  System.out.println(child.getName());
+              }
+            } else {
+              // Handle the case where dir is not really a directory.
+              // Checking dir.isDirectory() above would not be sufficient
+              // to avoid race conditions with another process that deletes
+              // directories.
+            }
+  
+  
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // i have added thses comments just to test commits
     /**
