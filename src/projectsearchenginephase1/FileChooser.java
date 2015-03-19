@@ -4,6 +4,8 @@ package projectsearchenginephase1;
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -13,6 +15,7 @@ public class FileChooser extends JPanel
     JButton openButton, saveButton;
     JTextArea log;
     JFileChooser fc;
+    private File selectedFile;
  
     public FileChooser() {
         super(new BorderLayout());
@@ -33,8 +36,7 @@ public class FileChooser extends JPanel
  
         //Create the save button.  We use the image from the JLF
         //Graphics Repository (but we extracted it from the jar).
-        saveButton = new JButton("Save a File...",
-                                 createImageIcon("images/Save16.gif"));
+        saveButton = new JButton("Save it");
         saveButton.addActionListener(this);
         
         
@@ -61,6 +63,7 @@ public class FileChooser extends JPanel
  
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fc.getSelectedFile();
+                selectedFile = fc.getSelectedFile();
                 //This is where a real application would open the file.
                 log.append("Opening: " + file.getName() + "." + newline);
             } else {
@@ -70,15 +73,43 @@ public class FileChooser extends JPanel
  
         //Handle save button action.
         } else if (e.getSource() == saveButton) {
-            int returnVal = fc.showSaveDialog(FileChooser.this);
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fc.getSelectedFile();
-                //This is where a real application would save the file.
-                log.append("Saving: " + file.getName() + "." + newline);
-            } else {
-                log.append("Save command cancelled by user." + newline);
+            try {
+                    
+                
+            InputStream inStream = null;
+            OutputStream outStream = null;
+                
+            File afile =selectedFile;
+    	    File bfile =new File("d:\\indexFiles\\"+selectedFile.getName());   
+                
+            inStream = new FileInputStream(afile);
+    	    outStream = new FileOutputStream(bfile);
+ 
+    	    byte[] buffer = new byte[1024];
+ 
+    	    int length;
+    	    //copy the file content in bytes 
+    	    while ((length = inStream.read(buffer)) > 0){
+ 
+    	    	outStream.write(buffer, 0, length);
+ 
+    	    }
+ 
+    	    inStream.close();
+    	    outStream.close();
+
+    	    System.out.println("File is Saved to index successfully!");
+            
+            JOptionPane.showMessageDialog(null, "File is Saved to index successfully!");
+            searchEngineGUI obj = new searchEngineGUI();
+          //  this.setVisible(false);
+            
+ 
+            } catch (IOException ex) {
+                Logger.getLogger(FileChooser.class.getName()).log(Level.SEVERE, null, ex);
             }
-            log.setCaretPosition(log.getDocument().getLength());
+            
+            
         }
     }
  

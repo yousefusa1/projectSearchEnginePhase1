@@ -29,6 +29,24 @@ public class searchEngineGUI extends javax.swing.JFrame {
         jComboBox1.addItem("PHRASE");
         jComboBox1.addItem("AND");
         jComboBox1.addItem("OR");
+        
+        
+                  File dir = new File("d:\\indexFiles");
+            File[] directoryListing = dir.listFiles();
+            if (directoryListing != null) {
+              for (File child : directoryListing) {
+               
+                  jTextArea1.append("Indexed File       ------>    "+child.getName()+"\n");
+              }
+            } else {
+              // Handle the case where dir is not really a directory.
+              // Checking dir.isDirectory() above would not be sufficient
+              // to avoid race conditions with another process that deletes
+              // directories.
+            }
+  
+        
+        
     }
 
     /**
@@ -137,20 +155,7 @@ public class searchEngineGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-          File dir = new File("d:\\indexFiles");
-            File[] directoryListing = dir.listFiles();
-            if (directoryListing != null) {
-              for (File child : directoryListing) {
-                
-                  System.out.println(child.getName());
-              }
-            } else {
-              // Handle the case where dir is not really a directory.
-              // Checking dir.isDirectory() above would not be sufficient
-              // to avoid race conditions with another process that deletes
-              // directories.
-            }
-  
+
   
     }//GEN-LAST:event_jButton1ActionPerformed
 
