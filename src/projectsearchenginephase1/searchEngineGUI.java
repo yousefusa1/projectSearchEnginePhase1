@@ -9,7 +9,7 @@ import javax.swing.JFileChooser;
 
 /**
  *
- * @author Ali
+ * @author Yousef
  */
 public class searchEngineGUI extends javax.swing.JFrame {
 
