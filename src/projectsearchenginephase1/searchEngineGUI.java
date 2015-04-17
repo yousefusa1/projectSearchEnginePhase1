@@ -4,8 +4,18 @@
  */
 package projectsearchenginephase1;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,7 +41,7 @@ public class searchEngineGUI extends javax.swing.JFrame {
         jComboBox1.addItem("OR");
         
         
-                  File dir = new File("d:\\indexFiles");
+            File dir = new File("d:\\indexFiles");
             File[] directoryListing = dir.listFiles();
             if (directoryListing != null) {
               for (File child : directoryListing) {
@@ -152,11 +162,63 @@ public class searchEngineGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         // TODO add your handling code here:
         
+        String keyWord = jTextField1.getText().toString();
         
+            File dir = new File("d:\\indexFiles");
+            int fileNo=1;
+            File[] directoryListing = dir.listFiles();
+            if (directoryListing != null) {
+              for (File child : directoryListing) {
+                  
+                        int i=0;
+                            Scanner sc2 = null;
+                              try {
+                                  sc2 = new Scanner(child);
+                              } catch (FileNotFoundException e) {
+                                  e.printStackTrace();  
+                              }
+                              while (sc2.hasNextLine()) {
+                                      Scanner s2 = new Scanner(sc2.nextLine());
+                                  while (s2.hasNext()) {
+                                      String s = s2.next();
+                                      
+                                      //System.out.println(s);
+                                      
+                                      if(s.equals(keyWord)){
+                                          
+                                          JOptionPane.showMessageDialog(null, keyWord + " found successfully in file number "+ fileNo);
+                                         
+                                         return;
+                                      }
+                                      
+                                     
+                                  }
+                              }
 
-  
+
+
+
+
+
+                              System.out.println("Keyword not found in file number "+ fileNo );
+                              fileNo++;
+                  
+                  
+              }
+              
+              
+              JOptionPane.showMessageDialog(null,"Key word not found in any file :( ");
+              
+              
+             
+            } 
+            
+            
+            
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // i have added thses comments just to test commits
