@@ -1,20 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package projectsearchenginephase1;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,20 +14,14 @@ public class searchEngineGUI extends javax.swing.JFrame {
     /**
      * Creates new form searchEngineGUI
      */
-    
-    
-
 
     public searchEngineGUI() {
         initComponents();
-        
-        
         
         jComboBox1.removeAllItems();
         jComboBox1.addItem("PHRASE");
         jComboBox1.addItem("AND");
         jComboBox1.addItem("OR");
-        
         
             File dir = new File("e:\\indexFiles");
             File[] directoryListing = dir.listFiles();
@@ -49,14 +31,8 @@ public class searchEngineGUI extends javax.swing.JFrame {
                   jTextArea1.append("Indexed File       ------>    "+child.getName()+"\n");
               }
             } else {
-              // Handle the case where dir is not really a directory.
-              // Checking dir.isDirectory() above would not be sufficient
-              // to avoid race conditions with another process that deletes
-              // directories.
-            }
   
-        
-        
+            }
     }
 
     /**
@@ -221,10 +197,7 @@ public class searchEngineGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    // i have added thses comments just to test commits
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

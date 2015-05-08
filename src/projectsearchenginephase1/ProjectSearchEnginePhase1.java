@@ -1,14 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projectsearchenginephase1;
 
 import javax.swing.UIManager;
 
 /**
  *
- * @author Yousef
+ * @author Yousef, Khalid, Nasser
  */
 public class ProjectSearchEnginePhase1 {
 

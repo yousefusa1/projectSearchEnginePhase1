@@ -20,8 +20,6 @@ public class FileChooser extends JPanel
     public FileChooser() {
         super(new BorderLayout());
  
-        //Create the log first, because the action listeners
-        //need to refer to it.
         log = new JTextArea(5,20);
         log.setMargin(new Insets(5,5,5,5));
         log.setEditable(false);
@@ -34,18 +32,10 @@ public class FileChooser extends JPanel
                                  createImageIcon("images/Open16.gif"));
         openButton.addActionListener(this);
  
-        //Create the save button.  We use the image from the JLF
-        //Graphics Repository (but we extracted it from the jar).
         saveButton = new JButton("Save it");
         saveButton.addActionListener(this);
         
-        
-        
-        
-        
-        
- 
-        //For layout purposes, put the buttons in a separate panel
+
         JPanel buttonPanel = new JPanel(); //use FlowLayout
         buttonPanel.add(openButton);
         buttonPanel.add(saveButton);
@@ -71,7 +61,6 @@ public class FileChooser extends JPanel
             }
             log.setCaretPosition(log.getDocument().getLength());
  
-        //Handle save button action.
         } else if (e.getSource() == saveButton) {
             try {
                     
@@ -89,15 +78,12 @@ public class FileChooser extends JPanel
         result = true;
     } 
     catch(SecurityException se){
-        //handle it
     }        
     if(result) {    
         System.out.println("DIR created");  
     }
 }
            
-           
-                
             File afile =selectedFile;
     	    File bfile =new File("e:\\indexFiles\\"+selectedFile.getName());   
                 
@@ -116,18 +102,12 @@ public class FileChooser extends JPanel
  
     	    inStream.close();
     	    outStream.close();
-            // few changes are done
-
     	    System.out.println("File is Saved to index successfully!");
             
             JOptionPane.showMessageDialog(null, "File is Saved to index successfully!");
-            
- 
             } catch (IOException ex) {
                 Logger.getLogger(FileChooser.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            
         }
     }
  
@@ -141,9 +121,7 @@ public class FileChooser extends JPanel
             return null;
         }
     }
-    
-    
-    
+ 
     /*
      * 
      * Stub to delete a specific file
@@ -167,8 +145,6 @@ public class FileChooser extends JPanel
  
         //Add content to the window.
         frame.add(new FileChooser());
- 
-        //Display the window.
         frame.pack();
         frame.setVisible(true);
     }
