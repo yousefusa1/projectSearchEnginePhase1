@@ -78,9 +78,28 @@ public class FileChooser extends JPanel
                 
             InputStream inStream = null;
             OutputStream outStream = null;
+            
+           File theDir = new File("e:\\indexFiles\\");
+           if (!theDir.exists()) {
+    System.out.println("creating directory: " + "e:\\indexFiles\\");
+    boolean result = false;
+
+    try{
+        theDir.mkdir();
+        result = true;
+    } 
+    catch(SecurityException se){
+        //handle it
+    }        
+    if(result) {    
+        System.out.println("DIR created");  
+    }
+}
+           
+           
                 
             File afile =selectedFile;
-    	    File bfile =new File("d:\\indexFiles\\"+selectedFile.getName());   
+    	    File bfile =new File("e:\\indexFiles\\"+selectedFile.getName());   
                 
             inStream = new FileInputStream(afile);
     	    outStream = new FileOutputStream(bfile);

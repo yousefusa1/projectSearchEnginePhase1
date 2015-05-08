@@ -41,7 +41,7 @@ public class searchEngineGUI extends javax.swing.JFrame {
         jComboBox1.addItem("OR");
         
         
-            File dir = new File("d:\\indexFiles");
+            File dir = new File("e:\\indexFiles");
             File[] directoryListing = dir.listFiles();
             if (directoryListing != null) {
               for (File child : directoryListing) {
